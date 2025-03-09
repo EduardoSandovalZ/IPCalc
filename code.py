@@ -29,21 +29,30 @@ def calculate_network_info(ip_with_prefix):
     num_hosts = network.num_addresses - 2 if network.num_addresses > 2 else 0
     first_host = str(network.network_address + 1) if num_hosts > 0 else "N/A"
     last_host = str(network.broadcast_address - 1) if num_hosts > 0 else "N/A"
+    
+    
+    print(f"\n----------SUMMARY----------\n")
+    
 
-    print(f"Clase de IP: {get_ip_class(ip)}\n")
-    print(f"IP en decimal: {ip}/{cidr}")
-    print(f"IP en binario: {ip_to_binary(ip)}\n")
-    print(f"Máscara de red en decimal: {mask}")
-    print(f"Máscara de red en binario: {ip_to_binary(mask)}")
-    print(f"Wildcard en decimal: {wildcard}")
-    print(f"Wildcard en binario: {ip_to_binary(wildcard)}\n")
-    print(f"Dirección de red en decimal: {ip}/{cidr}")
-    print(f"Dirección de red en binario: {ip_to_binary(ip)}\n")
-    print(f"Dirección de broadcast en decimal: {broadcast}")
-    print(f"Dirección de broadcast en binario: {ip_to_binary(broadcast)}\n")
-    print(f"Primer host en decimal: {first_host}")
-    print(f"Último host en decimal: {last_host}")
-    print(f"Número de hosts utilizables: {num_hosts}")
+    print(f"Class: {get_ip_class(ip)}")
+    print(f"Decimal IP: {ip}/{cidr}")
+    print(f"Binary IP: {ip_to_binary(ip)}\n")
+    
+    print(f"\n----------NETWORK----------\n")
+    print(f"Decimal Network: {ip}/{cidr}")
+    print(f"Binary Network: {ip_to_binary(ip)}\n")
+    print(f"Decimal Mask: {mask}")
+    print(f"Binary Mask: {ip_to_binary(mask)}")
+    print(f"Decimal Broadcast: {broadcast}")
+    print(f"Binary Broadcast: {ip_to_binary(broadcast)}\n")
+    print(f"Decimal Wildcard: {wildcard}")
+    print(f"Binary Wildcard: {ip_to_binary(wildcard)}\n")
+
+
+    print(f"\n----------HOSTS----------\n")
+    print(f"HostMin: {first_host}")
+    print(f"HostMax: {last_host}")
+    print(f"Hosts/Net: {num_hosts}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
